@@ -1,0 +1,47 @@
+// a company provoide insurance to driver in the following condition 
+//1 if the driver is married
+//2 if the driver is unmarried male  and above 30 year of age 
+//if the driver is unmarried female and above 25 year of the age 
+//in all other cases driver is not insured input the marrateal stratus gender and age and determined if the driver is insured or not  
+
+
+#include <stdio.h>
+#include <stdbool.h> 
+
+int main() {
+    char marital_status;
+    char gender;
+    int age;
+
+    // Taking input for marital status, gender, and age
+    printf("Enter marital status (M for married, U for unmarried): ");
+    scanf(" %c", &marital_status);
+
+    printf("Enter gender (M for male, F for female): ");
+    scanf(" %c", &gender);
+
+    printf("Enter age: ");
+    scanf("%d", &age);
+
+    // Checking conditions to determine insurance eligibility
+    bool insured = false; // Assuming the driver is not insured by default
+
+    if (marital_status == 'M') {
+        insured = true;
+    } else if (marital_status == 'U') {
+        if (gender == 'M' && age > 30) {
+            insured = true;
+        } else if (gender == 'F' && age > 20) {
+            insured = true;
+        }
+    }
+
+    // Displaying the result
+    if (insured) {
+        printf("The driver is insured.\n");
+    } else {
+        printf("The driver is not insured.\n");
+    }
+
+    return 0;
+}
